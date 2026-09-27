@@ -1,5 +1,6 @@
 package com.shikavani.basic;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 /**
@@ -7,6 +8,32 @@ import java.util.HashSet;
  * in the array, and return false if every element is distinct.
  */
 public class ContainDuplicate217 {
+
+    // TC -> O(n^2)
+    public boolean containsDuplicateBruteForce(int[] nums){
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                if(i != j && nums[i] == nums[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // TC -> O(nlogn) + O(n) => O(nlogn)
+    public boolean containsDuplicateBetter(int[] nums){
+
+        Arrays.sort(nums); // sort the array in O(nlogn)
+
+        for (int i = 0; i < nums.length-1; i++) {
+            if(nums[i] == nums[i+1]){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     // iterate on all the elements O(n)
     public boolean containsDuplicate(int[] nums){
@@ -18,8 +45,9 @@ public class ContainDuplicate217 {
 
         return set.size() != nums.length;
     }
+
     // early exit -> O(n)
-    public boolean containsDuplicateBetter(int[] nums) {
+    public boolean containsDuplicateOptimal(int[] nums) {
         HashSet<Integer> set = new HashSet<>();
 
         for (int i = 0; i < nums.length; i++) {
