@@ -56,7 +56,7 @@ public class LongestConsecutiveSequence128 {
         return longestConsecutive;
     }
 
-    // How this doesn't belongs to O(n^2) ?
+    // How this doesn't belong to O(n^2) ?
     // Solution -> Think about how many times the inner loop will run
     // not for every element right? only for start position it will move forward
     // that's why it is not O(n^2)
