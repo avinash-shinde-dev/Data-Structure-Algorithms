@@ -13,6 +13,8 @@ import java.util.HashMap;
  * You can return the answer in any order.
  */
 public class TwoSum {
+
+    // TC -> O(n2) SC -> O(1)
     public int[] twoSumBruteForce(int[] nums, int target) {
         int[] ans = new int[2];
         Arrays.fill(ans, -1);
@@ -29,6 +31,7 @@ public class TwoSum {
         return ans;
     }
 
+    // TC -> O(n) SC -> O(n)
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> numIndexMap = new HashMap<>();
 
